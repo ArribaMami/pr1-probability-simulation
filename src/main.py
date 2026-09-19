@@ -37,9 +37,6 @@ plt.plot(n_values, frequencies, marker='o', label="Статистикна час
 plt.axhline(y=p, color='r', linestyle='--', label="Теоретична ймовірність P(A)")
 plt.xscale('log')  # Використовуємо логарифмічну шкалу для осі x
 
-# Логарифмачна шкала для осі X
-plt.xscale('log')
-
 #Оформлення графіка
 plt.xlabel("Кількість випробувань (N)")
 plt.ylabel("Відносна частота W(А)")
