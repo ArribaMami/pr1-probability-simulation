@@ -1,5 +1,6 @@
 import random #імпортуємо модуль random для генерації випадкових чисел
 import matplotlib.pyplot as plt  # Бібліотека для побудови графіків
+import math  # Модуль для використання точного значення числа pi
 
 random.seed(1)  # встановлюємо початкове значення генератора випадкових чисел для відтворюваності результатів
 
@@ -47,4 +48,47 @@ plt.grid(True)
 # збереження графіка у файл
 plt.savefig("graphics/simulation_results.png")
 
+plt.show()  # Відображення графіка
+
+# Блок 3. Оцінка числа pi методом Монте-Карло
+
+pi_estimates = [] # список для збереження оцінок числа pi
+pi_errors = [] # список для збереження абсолютних похибок оцінки числа pi
+
+for N_pi in n_values:
+    M_pi = 0
+
+    for _ in range(N_pi):
+        x = random.uniform(-1, 1)  # генеруємо випадкове число для координати x
+        y = random.uniform(-1, 1)  # генеруємо випадкове число для координати y
+
+        if x**2 + y**2 <= 1:  # перевіряємо, чи точка потрапила в коло
+            M_pi += 1  # якщо так, збільшуємо лічильник
+
+    pi_estimate = (M_pi / N_pi) * 4  # оцінка числа pi за формулою
+    pi_estimates.append(pi_estimate)
+
+    pi_error = abs(pi_estimate - math.pi)
+    pi_errors.append(pi_error)
+    print(
+    "N =", N_pi,
+    "| Оцінка pi:", f"{pi_estimate:.6f}",
+    "| Похибка:", f"{pi_error:.6f}"
+)
+
+# Побудова графіків для оцінки числа pi
+plt.figure()
+
+plt.plot(n_values, pi_estimates, marker='o', label="Оцінка числа pi методом Монте-Карло")
+plt.axhline(y=math.pi, color='r', linestyle='--', label="Точне значення числа pi")
+plt.xscale('log')  # Використовуємо логарифмічну шкалу для осі x
+
+plt.xlabel("Кількість випробувань (N)")
+plt.ylabel("Оцінка числа pi")
+plt.title("Оцінка числа pi методом Монте-Карло")
+plt.legend()
+plt.grid(True)
+
+# збереження графіка у файл
+plt.savefig("graphics/pi_estimation.png")
 plt.show()  # Відображення графіка
