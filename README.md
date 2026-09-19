@@ -23,6 +23,8 @@ pr1-probability-simulation/
 ├── src/
 │   ├── main.py
 │   └── block2_variants.py
+├── report/
+│   └── PR1_Report_Мединський_Роман.pdf
 └── graphics/
     ├── simulation_results.png
     └── pi_estimation.png
@@ -46,6 +48,10 @@ python src/main.py
 ```bash
 python src/block2_variants.py
 ```
+
+## Звіт
+
+Підсумковий PDF-звіт розміщено у папці `report/`.
 
 ## Використані технології
 
