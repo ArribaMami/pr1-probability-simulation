@@ -11,7 +11,7 @@ count_A_and_B = 0  # лічильник для події A і B
 count_A_or_B = 0  # лічильник для події A або B
 count_not_A = 0  # лічильник для події не A
 
-for _ in range(N):
+for i in range(N):
     x = random.random()
     y = random.random()
 
